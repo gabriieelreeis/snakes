@@ -7,6 +7,11 @@ class CobrasEscadas = _CobrasEscadasBase with _$CobrasEscadas;
 
 abstract class _CobrasEscadasBase with Store {
   @observable
+  bool pinAVisible = true;
+  @observable
+  bool pinBVisible = true;
+
+  @observable
   bool overlay = true;
 
   @observable
@@ -52,6 +57,7 @@ abstract class _CobrasEscadasBase with Store {
     overlay = false;
     await Future.delayed(Duration(seconds: 1));
     if (playerAplaying) {
+      pinAVisible = false;
       playerAleft = Random().nextInt(6) + 1;
       playerAright = Random().nextInt(6) + 1;
       playing = true;
@@ -60,7 +66,9 @@ abstract class _CobrasEscadasBase with Store {
       if (playerAleft != playerAright && !winner) {
         playerAplaying = false;
       }
+      pinAVisible = true;
     } else {
+      pinBVisible = false;
       playerBleft = Random().nextInt(6) + 1;
       playerBright = Random().nextInt(6) + 1;
       playing = true;
@@ -69,7 +77,9 @@ abstract class _CobrasEscadasBase with Store {
       if (playerBleft != playerBright && !winner) {
         playerAplaying = true;
       }
+      pinBVisible = true;
     }
+
     playing = false;
 
     await Future.delayed(Duration(seconds: 2));

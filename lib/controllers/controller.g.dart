@@ -31,6 +31,36 @@ mixin _$CobrasEscadas on _CobrasEscadasBase, Store {
               name: '_CobrasEscadasBase.playerBtotal'))
           .value;
 
+  final _$pinAVisibleAtom = Atom(name: '_CobrasEscadasBase.pinAVisible');
+
+  @override
+  bool get pinAVisible {
+    _$pinAVisibleAtom.reportRead();
+    return super.pinAVisible;
+  }
+
+  @override
+  set pinAVisible(bool value) {
+    _$pinAVisibleAtom.reportWrite(value, super.pinAVisible, () {
+      super.pinAVisible = value;
+    });
+  }
+
+  final _$pinBVisibleAtom = Atom(name: '_CobrasEscadasBase.pinBVisible');
+
+  @override
+  bool get pinBVisible {
+    _$pinBVisibleAtom.reportRead();
+    return super.pinBVisible;
+  }
+
+  @override
+  set pinBVisible(bool value) {
+    _$pinBVisibleAtom.reportWrite(value, super.pinBVisible, () {
+      super.pinBVisible = value;
+    });
+  }
+
   final _$overlayAtom = Atom(name: '_CobrasEscadasBase.overlay');
 
   @override
@@ -212,6 +242,8 @@ mixin _$CobrasEscadas on _CobrasEscadasBase, Store {
   @override
   String toString() {
     return '''
+pinAVisible: ${pinAVisible},
+pinBVisible: ${pinBVisible},
 overlay: ${overlay},
 winner: ${winner},
 playing: ${playing},

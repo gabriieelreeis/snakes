@@ -82,12 +82,20 @@ class _TabuleiroState extends State<Tabuleiro> {
                                               alignment: index == 99
                                                   ? Alignment.topLeft
                                                   : Alignment.center,
-                                              child: Container(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                decoration: new BoxDecoration(
-                                                  color: Colors.red,
-                                                  shape: BoxShape.rectangle,
+                                              child: AnimatedOpacity(
+                                                opacity: controller.pinAVisible
+                                                    ? 1.0
+                                                    : 0.4,
+                                                duration: const Duration(
+                                                  milliseconds: 500,
+                                                ),
+                                                child: Container(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  decoration: new BoxDecoration(
+                                                    color: Colors.red,
+                                                    shape: BoxShape.rectangle,
+                                                  ),
                                                 ),
                                               ),
                                             )
@@ -97,12 +105,20 @@ class _TabuleiroState extends State<Tabuleiro> {
                                               alignment: index == 99
                                                   ? Alignment.bottomRight
                                                   : Alignment.center,
-                                              child: Container(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                decoration: new BoxDecoration(
-                                                  color: Colors.black,
-                                                  shape: BoxShape.circle,
+                                              child: AnimatedOpacity(
+                                                opacity: controller.pinBVisible
+                                                    ? 1.0
+                                                    : 0.4,
+                                                duration: const Duration(
+                                                  milliseconds: 500,
+                                                ),
+                                                child: Container(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  decoration: new BoxDecoration(
+                                                    color: Colors.black,
+                                                    shape: BoxShape.circle,
+                                                  ),
                                                 ),
                                               ),
                                             )
