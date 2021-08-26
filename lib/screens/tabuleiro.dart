@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:snakes/controllers/controller.dart';
 
 class Tabuleiro extends StatefulWidget {
