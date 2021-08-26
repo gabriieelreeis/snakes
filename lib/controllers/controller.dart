@@ -70,11 +70,11 @@ abstract class _CobrasEscadasBase with Store {
   @action
   play(int qtd) async {
     if (playerAplaying) {
+      await Future.delayed(Duration(seconds: 2));
       playerAmove += qtd;
-      await Future.delayed(Duration(seconds: 2));
     } else {
-      playerBmove += qtd;
       await Future.delayed(Duration(seconds: 2));
+      playerBmove += qtd;
     }
 
     int position = playerAplaying ? playerAmove : playerBmove;
