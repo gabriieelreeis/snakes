@@ -46,6 +46,7 @@ abstract class _CobrasEscadasBase with Store {
   @observable
   bool playerAplaying = true;
 
+  // Ação responsável por gerar os dados com valores randomicos
   @action
   roll() async {
     overlay = false;
@@ -75,6 +76,7 @@ abstract class _CobrasEscadasBase with Store {
     overlay = true;
   }
 
+  // Ação responsável pelo movimento do jogador
   @action
   play(int qtd) async {
     if (playerAplaying) {
@@ -130,6 +132,9 @@ abstract class _CobrasEscadasBase with Store {
     }
   }
 
+  // Ação para identificar local do personagem e o mover caso esteja em alguma das casas informadas.
+  // init = Valor inicial
+  // finalVal = Valor final do objeto
   @action
   movePlayer(int init, int finalVal) async {
     if (((playerAplaying ? playerAmove : playerBmove)) == init) {
@@ -143,6 +148,7 @@ abstract class _CobrasEscadasBase with Store {
     }
   }
 
+  // Ação responsável pelo reinicio do game.
   @action
   restart() async {
     playerAleft = 1;
