@@ -15,8 +15,8 @@ class _TabuleiroState extends State<Tabuleiro> {
   List<GlobalKey> list;
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   Size size;
-  double width;
-  double height;
+  double width = 700;
+  double height = 700;
 
   @override
   void initState() {
@@ -30,8 +30,6 @@ class _TabuleiroState extends State<Tabuleiro> {
       key: scaffoldKey,
       body: Observer(
         builder: (_) {
-          print(controller.playerAmove);
-          print(controller.playerBmove);
           return Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -47,8 +45,8 @@ class _TabuleiroState extends State<Tabuleiro> {
                       Container(
                         alignment: Alignment.center,
                         margin: EdgeInsets.all(0),
-                        height: 700,
-                        width: 700,
+                        height: height,
+                        width: width,
                         child: Stack(
                           children: [
                             GridView.builder(
@@ -130,23 +128,25 @@ class _TabuleiroState extends State<Tabuleiro> {
                       Positioned(
                         top: 0,
                         left: 10,
-                        width: 690,
-                        height: 690,
+                        width: (width - 10),
+                        height: (height - 10),
                         child: Image.asset(
                           'assets/snaker-ladders.png',
-                          width: 700,
-                          height: 700,
+                          width: width,
+                          height: height,
                         ),
                       ),
+
+                      // Condição para exibir mensagem caso não haja ninguem jogando e haja um vencedor no momento
                       if (!controller.playing && controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
-                          width: 700,
-                          height: 700,
+                          width: width,
+                          height: height,
                           child: Container(
-                            width: 700,
-                            height: 700,
+                            width: width,
+                            height: height,
                             color: Color.fromRGBO(0, 0, 0, .8),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -201,17 +201,19 @@ class _TabuleiroState extends State<Tabuleiro> {
                             ),
                           ),
                         ),
+
+                      // Condição para exibir mensagem caso ambos os dados do Jogador X sejam iguais
                       if (controller.equalDice &&
                           !controller.playing &&
                           !controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
-                          width: 700,
-                          height: 700,
+                          width: width,
+                          height: height,
                           child: Container(
-                            width: 700,
-                            height: 700,
+                            width: width,
+                            height: height,
                             color: Color.fromRGBO(0, 0, 0, .8),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -266,14 +268,16 @@ class _TabuleiroState extends State<Tabuleiro> {
                             ),
                           ),
                         ),
+
+                      // Condição para exibir dados caso o botão JOGAR tenha sido clicado
                       if (!controller.overlay &&
                           controller.playing &&
                           !controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
-                          width: 700,
-                          height: 700,
+                          width: width,
+                          height: height,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -298,17 +302,18 @@ class _TabuleiroState extends State<Tabuleiro> {
                             ],
                           ),
                         ),
+                      // Condição para exibir mensagem informado a vez do jogador atual
                       if (controller.overlay &&
                           !controller.equalDice &&
                           !controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
-                          width: 700,
-                          height: 700,
+                          width: width,
+                          height: height,
                           child: Container(
-                            width: 700,
-                            height: 700,
+                            width: width,
+                            height: height,
                             color: Color.fromRGBO(0, 0, 0, .8),
                             child: Observer(builder: (_) {
                               return Column(
