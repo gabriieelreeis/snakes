@@ -6,8 +6,8 @@ import 'controllers/controller.dart';
 
 void main() {
   GetIt getIt = GetIt.I;
-
   getIt.registerSingleton<CobrasEscadas>(CobrasEscadas());
+
   runApp(MyApp());
 }
 
