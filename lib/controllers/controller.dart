@@ -65,7 +65,7 @@ abstract class _CobrasEscadasBase with Store {
       playing = true;
       await play(playerBtotal);
 
-      if (playerAleft != playerAright && !winner) {
+      if (playerBleft != playerBright && !winner) {
         playerAplaying = true;
       }
     }
