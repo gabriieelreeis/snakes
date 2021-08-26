@@ -55,11 +55,19 @@ abstract class _CobrasEscadasBase with Store {
       playerAright = Random().nextInt(6) + 1;
       playing = true;
       await play(playerAtotal);
+
+      if (playerAleft != playerAright && !winner) {
+        playerAplaying = false;
+      }
     } else {
       playerBleft = Random().nextInt(6) + 1;
       playerBright = Random().nextInt(6) + 1;
       playing = true;
       await play(playerBtotal);
+
+      if (playerAleft != playerAright && !winner) {
+        playerAplaying = true;
+      }
     }
     playing = false;
 
@@ -81,7 +89,12 @@ abstract class _CobrasEscadasBase with Store {
 
     if (position > 100) {
       var volta = (position - 100);
-      playerAmove -= (volta * 2);
+      if (playerAplaying) {
+        playerAmove -= (volta * 2);
+      } else {
+        playerBmove -= (volta * 2);
+      }
+
       winner = false;
     }
 
@@ -109,14 +122,10 @@ abstract class _CobrasEscadasBase with Store {
     if (playerAplaying) {
       if (playerAleft == playerAright) {
         playerAplaying = true;
-      } else {
-        playerAplaying = false;
       }
     } else {
       if (playerBleft == playerBright) {
         playerAplaying = false;
-      } else {
-        playerAplaying = true;
       }
     }
   }

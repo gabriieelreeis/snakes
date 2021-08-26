@@ -266,7 +266,9 @@ class _TabuleiroState extends State<Tabuleiro> {
                             ),
                           ),
                         ),
-                      if (!controller.overlay && controller.playing)
+                      if (!controller.overlay &&
+                          controller.playing &&
+                          !controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
@@ -296,7 +298,9 @@ class _TabuleiroState extends State<Tabuleiro> {
                             ],
                           ),
                         ),
-                      if (controller.overlay && !controller.equalDice)
+                      if (controller.overlay &&
+                          !controller.equalDice &&
+                          !controller.winner)
                         Positioned(
                           top: 0,
                           left: 0,
