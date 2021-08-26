@@ -79,13 +79,13 @@ abstract class _CobrasEscadasBase with Store {
 
     int position = playerAplaying ? playerAmove : playerBmove;
 
-    if (position > 99) {
-      var volta = (position - 99);
+    if (position > 100) {
+      var volta = (position - 100);
       playerAmove -= (volta * 2);
       winner = false;
     }
 
-    if (position == 99) {
+    if (position == 100) {
       winner = true;
     }
 
