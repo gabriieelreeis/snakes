@@ -12,4 +12,6 @@ Implementação realizada utilizando MOBX como gerenciador de estados da aplica�
 
 > flutter pub get
 > 
-> flutter run web
+> flutter run
+
+Recomendo utilizar o Chrome ou Windows como visualizador.
